@@ -24,7 +24,7 @@ RST = 23
 CS = 22
 # Hardware SPI usage:
 disp = LCD.PCD8544(DC, RST, SCLK, DIN, CS)
-# Initialize library.
+# set level contrast display
 disp.begin(contrast=60)
 # Clear display.
 disp.clear()
