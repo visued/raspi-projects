@@ -12,6 +12,7 @@ def lcdAtt(text):
         # Clear image buffer.
         draw.rectangle((0,0,84,48), outline=255, fill=255)
         draw.text((0, 0), text,font=font, fill=0)
+        
         # Draw the image buffer.
         disp.image(image)
         disp.display()
@@ -22,17 +23,23 @@ DIN = 18
 DC = 27
 RST = 23
 CS = 22
+
 # Hardware SPI usage:
 disp = LCD.PCD8544(DC, RST, SCLK, DIN, CS)
+
 # set level contrast display
 disp.begin(contrast=60)
+
 # Clear display.
 disp.clear()
 disp.display()
+
 # Make sure to create image with mode '1' for 1-bit color.
 image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+
 # Load default font.
 font = ImageFont.load_default()
+
 # Load imagem to draw
 draw = ImageDraw.Draw(image)
 
@@ -46,7 +53,8 @@ pinList = [21, 20, 16, 12, 26, 19, 13, 6]
 for i in pinList:
         GPIO.setup(i, GPIO.OUT)
         GPIO.output(i, GPIO.HIGH)
-#time for active relay
+        
+#time for sleep relay
 SleepTimeL = 5
 
 #main loop
@@ -82,6 +90,6 @@ try:
 #End program cleanly with keyboard
 except KeyboardInterrupt:
         print " Quit"
-
+        
         #Reset GPIO settings
         GPIO.cleanup()
