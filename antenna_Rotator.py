@@ -1,6 +1,7 @@
 import paramiko
 import RPi.GPIO as GPIO
 import socket
+import sys
 from time import sleep
 
 __author__ =      ["Victor Sued"]
@@ -13,8 +14,10 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(13, GPIO.OUT)
 
 def main():
-    while verifyConnection() == False:
-        forward(0.5)
+    sleep(3)
+    while True:
+        if verifyConnection() == False:
+            forward(0.2)
 
 def forward(x):
     GPIO.output(13, GPIO.HIGH)
@@ -22,7 +25,7 @@ def forward(x):
     GPIO.output(13, GPIO.LOW)
 
 def verifyConnection():
-    ip="192.168.11.2"
+    ip="192.168.11.4"
     user="admin"
     password=''
     tout=0.5
