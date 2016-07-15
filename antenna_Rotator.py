@@ -10,7 +10,7 @@ __copyright__ =   "Copyright 2016, Victor Sued Inc."
 __license__ =     "Python Sofware Foundation"
 __version__ = "0.1"
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(13, GPIO.OUT)
 
 def main():
