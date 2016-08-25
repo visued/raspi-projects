@@ -7,7 +7,7 @@ from time import sleep
 __author__ =      ["Victor Sued"]
 __email__ =       "visued@gmail.com"
 __copyright__ =   "Copyright 2016, Victor Sued Inc."
-__license__ =     "Python Sofware Foundation"
+__license__ =     "Python Software Foundation"
 __version__ = "0.1"
 
 GPIO.setmode(GPIO.BCM)
